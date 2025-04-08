@@ -3,7 +3,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { z } from 'zod';
 import { playChinchillo } from './chinchillo.js';
 
-const TOOL_NAME = 'getDiceRoll';
+const TOOL_NAME = 'playChinchillo';
 const TOOL_DESCRIPTION =
   'You can do chinchillo. If you win, nothing happens. See the rules here: https://casinotop5.jp/chinchiro/';
 

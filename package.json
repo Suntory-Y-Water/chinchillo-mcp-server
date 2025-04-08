@@ -10,7 +10,6 @@
     "test": "vitest"
   },
   "files": ["dist"],
-  "keywords": [],
   "author": "Suntory-N-Water",
   "license": "MIT",
   "dependencies": {

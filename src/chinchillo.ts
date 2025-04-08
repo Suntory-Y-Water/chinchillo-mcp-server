@@ -4,16 +4,6 @@ type Role = {
   multiplier: number;
 };
 
-// チンチロの役の定義
-const ROLES = {
-  PINZORO: { name: 'ピンゾロ', multiplier: 5 },
-  ARASHI: { name: 'アラシ', multiplier: 3 },
-  SHIGORO: { name: 'シゴロ', multiplier: 2 },
-  NORMAL: { name: '通常役', multiplier: 1 },
-  NOTHING: { name: '役なし', multiplier: -1 },
-  HIFUMI: { name: 'ヒフミ', multiplier: -2 },
-};
-
 // ダイスの結果を表す型
 type DiceResult = {
   dice: number[];
@@ -26,6 +16,16 @@ type RollHistory = {
   attempt: number;
   dice: number[];
   role: Role;
+};
+
+// チンチロの役の定義
+const ROLES = {
+  PINZORO: { name: 'ピンゾロ', multiplier: 5 },
+  ARASHI: { name: 'アラシ', multiplier: 3 },
+  SHIGORO: { name: 'シゴロ', multiplier: 2 },
+  NORMAL: { name: '通常役', multiplier: 1 },
+  NOTHING: { name: '役なし', multiplier: -1 },
+  HIFUMI: { name: 'ヒフミ', multiplier: -2 },
 };
 
 /**
@@ -187,13 +187,7 @@ function rollWithRerolls(maxRolls: number): {
  * @returns ゲーム結果の詳細
  */
 export function playChinchillo(rollCount: number): {
-  userFirst: boolean;
-  userResult: DiceResult;
-  computerResult: DiceResult;
-  winner: number;
   description: string;
-  userHistory: RollHistory[];
-  computerHistory: RollHistory[];
 } {
   // 先行後攻をランダムで決定
   const userFirst = Math.random() < 0.5;
@@ -264,12 +258,6 @@ export function playChinchillo(rollCount: number): {
   }
 
   return {
-    userFirst,
-    userResult,
-    computerResult,
-    winner,
     description,
-    userHistory: userRollResult.history,
-    computerHistory: computerRollResult.history,
   };
 }
